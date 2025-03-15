@@ -6,41 +6,6 @@
     <title>Simple Bootstrap Popup</title>
 </head>
 <body>
-
-    <!-- Button to Trigger Modal -->
-    <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-        Open Popup
-    </button> -->
-    <style>
-        /* Simple styling to preserve the placement */
-        #randomMessage {
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ccc; /* Adds a light border but no background color */
-            border-radius: 5px; /* Optional: Adds rounded corners */
-        }
-    </style>
-    <!-- Modal Structure -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">All Star Student Blast!</h5>
-                    
-                    
-                    
-                </div>
-                <div 
-                    id="randomMessage">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Shut Up</button>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
         // Array of random messages
         const messages = [
@@ -79,42 +44,6 @@
         },  25000);  // 10000ms = 5 seconds
         
     </script>
-    
-</body>
-<style>
-    /* Basic styles for the popup */
-    .popup {
-        position: absolute;
-        padding: 15px;
-        background-color: white; /* White background */
-        color: black;  /* Black text */
-        border-radius: 5px;
-        font-size: 14px;
-       
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        border: 1px solid #ddd;
-        z-index: 9999;
-    }
-
-    /* Close button style */
-    .popup .close-btn {
-        position: relative;
-        top: 5px;
-        right: 5px;
-        background-color: transparent;
-        border: none;
-        font-size: 16px;
-        cursor: pointer;
-        color: black;
-    }
-
-    .popup .close-btn:hover {
-        color: red;  /* Change color when hovered */
-    }
-</style>
-</head>
-<body>
 
 <script>
     // Array of random messages
@@ -135,8 +64,8 @@
 
     // Function to select a random message from the array
     function getRandomMessage() {
-        const randomIndex = Math.floor(Math.random() * messages.length);
-        return messages[randomIndex];
+        const randomIndex = Math.floor(Math.random() * messages2.length);
+        return messages2[randomIndex];
     }
 
     // Function to create and show a popup

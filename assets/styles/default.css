@@ -5,3 +5,40 @@ body {
 .header-icon {
     font-size: 3em;
 }
+
+.popup {
+    position: absolute;
+    padding: 15px;
+    background-color: white; /* White background */
+    color: black;  /* Black text */
+    border-radius: 5px;
+    font-size: 14px;
+   
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    z-index: 9999;
+}
+
+/* Close button style */
+.popup .close-btn {
+    position: relative;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+}
+
+.popup .close-btn:hover {
+    color: red;  /* Change color when hovered */
+}
+
+#randomMessage {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Adds a light border but no background color */
+    border-radius: 5px; /* Optional: Adds rounded corners */
+}
