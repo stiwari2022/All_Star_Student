@@ -16,7 +16,14 @@ const messages = [
     "Why can’t you trust an atom? They slept with my wife.",
     "SQL injection is the placement of malicious code in SQL statements, via web page input.",
     "If you commit a crime and nobody catches you, did you really commit a crime?",
-    "LLMs cannot legally give consent!"
+    "LLMs cannot legally give consent!",
+    "BUY OUR PRODUCT",
+    "CHECK OUT OUR SOCIALS DO IT DO IT",
+    "GET POPUPPPED IDIOT",
+    "YOU SUCK I HATE YOU",
+    "RATE US 5 STARS OR WE LEAK YOUR IP",
+    "Want more popups? They’re on the way! Don't want more popups? TOO BAD",
+    "You're a pro at closing popups, aren't you?"
 ];
 
 // Function to select a random message from the array
@@ -28,17 +35,7 @@ function getRandomMessageBig() {
 setInterval(function() {
     $('#myModal').modal('show');
     document.getElementById('randomMessage').innerText = getRandomMessageBig();
-},  25000);  // 10000ms = 5 seconds
-
-const messages2 = [
-    "BUY OUR PRODUCT",
-    "CHECK OUT OUR SOCIALS DO IT DO IT",
-    "GET POPUPPPED IDIOT",
-    "YOU SUCK I HATE YOU",
-    "RATE US 5 STARS OR WE LEAK YOUR IP",
-    "Want more popups? They’re on the way! Don't want more popups? TOO BAD",
-    "You're a pro at closing popups, aren't you?"
-];
+},  25000);
 
 // Function to generate a random number between min and max
 function getRandomPosition(min, max) {
@@ -47,8 +44,8 @@ function getRandomPosition(min, max) {
 
 // Function to select a random message from the array
 function getRandomMessage() {
-    const randomIndex = Math.floor(Math.random() * messages2.length);
-    return messages2[randomIndex];
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    return messages[randomIndex];
 }
 
 // Function to create and show a popup
