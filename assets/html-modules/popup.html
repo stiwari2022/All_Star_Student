@@ -88,6 +88,98 @@
     </script>
     
 </body>
+<style>
+    /* Basic styles for the popup */
+    .popup {
+        position: absolute;
+        padding: 15px;
+        background-color: white; /* White background */
+        color: black;  /* Black text */
+        border-radius: 5px;
+        font-size: 14px;
+       
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ddd;
+        z-index: 9999;
+    }
+
+    /* Close button style */
+    .popup .close-btn {
+        position: relative;
+        top: 5px;
+        right: 5px;
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        color: black;
+    }
+
+    .popup .close-btn:hover {
+        color: red;  /* Change color when hovered */
+    }
+</style>
+</head>
+<body>
+
+<script>
+    // Array of random messages
+    const messages2 = [
+        "BUY OUR PRODUCT",
+        "CHECK OUT OUR SOCIALS DO IT DO IT",
+        "GET POPUPPPED IDIOT",
+        "YOU SUCK I HATE YOU",
+        "RATE US 5 STARS OR WE LEAK YOUR IP",
+        "Want more popups? They’re on the way! Don't want more popups? TOO BAD",
+        "You're a pro at closing popups, aren't you?"
+    ];
+
+    // Function to generate a random number between min and max
+    function getRandomPosition(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Function to select a random message from the array
+    function getRandomMessage() {
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        return messages[randomIndex];
+    }
+
+    // Function to create and show a popup
+    function createPopup() {
+        const popup = document.createElement("div");
+        popup.classList.add("popup");
+
+        // Set random position for the popup
+        const x = getRandomPosition(0, window.innerWidth - 200); // Ensure popup fits in screen width
+        const y = getRandomPosition(0, window.innerHeight - 50); // Ensure popup fits in screen height
+
+        popup.style.left = `${x}px`;
+        popup.style.top = `${y}px`;
+
+        // Set the random message
+        popup.innerText = getRandomMessage();
+
+        // Create a close button
+        const closeButton = document.createElement("button");
+        closeButton.classList.add("close-btn");
+        closeButton.innerHTML = "&times;"; // "×" symbol for close
+        closeButton.onclick = function() {
+            popup.remove();  // Remove the popup when the close button is clicked
+        };
+
+        // Append the close button and popup to the body
+        popup.appendChild(closeButton);
+        document.body.appendChild(popup);
+    }
+
+    // Generate a new popup every 5 seconds
+    setInterval(createPopup, 5000);
+
+</script>
+
+</body>
 </html>
 
 
