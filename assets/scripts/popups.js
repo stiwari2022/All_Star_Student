@@ -33,7 +33,7 @@ function getRandomMessageBig() {
 }
 
 setInterval(function() {
-    $('#myModal').modal('show');
+    document.getElementById('modalOpener').click();
     document.getElementById('randomMessage').innerText = getRandomMessageBig();
 },  25000);
 
