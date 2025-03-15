@@ -14,8 +14,212 @@
 
     <script async type="text/javascript" src="assets/scripts/insert-header-footer.js"></script>
     <link rel="stylesheet" href="assets/styles/default.css">
+    #header {
+    background-color: #f0f8ff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #81d4fa;
+    margin-bottom: 20px;
+  }
+  #calculator {
+    width: 250px;
+    border: 1px solid #81d4fa;
+    padding: 10px;
+    font-family: sans-serif;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Center calculator */
+  }
+
+  #display, #result, #resetInput {
+    width: 95%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #81d4fa;
+    text-align: right;
+    background-color: #f0f8ff;
+    border-radius: 4px;
+  }
+  #result{
+    text-align: right;
+  }
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .button {
+    width: 48px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #81d4fa;
+    cursor: pointer;
+    background-color: #bbdefb;
+    border-radius: 4px;
+    color: #1565c0;
+  }
+  .button:hover{
+    background-color: #90caf9;
+  }
+  #resetInput {
+    text-align: left;
+  }
+  #nopeDisplay {
+    text-align: center;
+    color: red;
+    display: none;
+    margin-top: 20px;
+  }
+  button{
+    background-color: #2196f3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+  }
+  button:hover {
+    background-color: #1976d2;
+  }
+
+  .theorem-box {
+    background-color: #e3f2fd;
+    border: 1px solid #81d4fa;
+    padding: 15px;
+    margin: 20px auto; /* Center theorem boxes */
+    border-radius: 8px;
+    width: 60%; /* Adjust width as needed */
+    max-width: 500px; /* Limit maximum width */
+  }
+
+  .theorem-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1565c0;
+  }
+  #resetDescription {
+    text-align: center;
+    display: none;
+    margin-top:10px;
+    font-size: 0.9em;
+  }
+</style>
 </head>
 <body>
-    
+    <div id="header">
+    <h1>Meth Support</h1>
+  </div>
+
+<div class="theorem-box">
+  <p class="theorem-title">Hairy Ball Theorem</p>
+  <p>The Hairy Ball Theorem basically says you can't comb a hairy ball flat without having something sticking up.</p>
+</div>
+
+<div class="theorem-box">
+  <p class="theorem-title">Chicken McNugget Theorem</p>
+  <p>Imagine you can only buy chicken nuggets in packs of, say, 3 and 5.<br><br>
+  The Chicken McNugget Theorem helps you find the biggest number of nuggets you can't buy.<br><br>
+  It turns out, the biggest number you can't get with 3 and 5 is 7. You can get 3, 5, 6, 8, 9, 10, and anything bigger. But you can't get 1, 2, 4, or 7.<br>
+  So what is the formula?<br><br>
+  Well, if you can only combine two numbers, m and n, the biggest number you can't make is (m * n) - m - n.</p>
+</div>
+
+<div id="calculator">
+  <input type="text" id="display" readonly>
+  <input type="text" id="result" readonly>
+  <div class="button-row">
+    <div class="button" onclick="appendToDisplay('7')">7</div>
+    <div class="button" onclick="appendToDisplay('8')">8</div>
+    <div class="button" onclick="appendToDisplay('9')">9</div>
+    <div class="button" onclick="appendToDisplay('+')">+</div>
+  </div>
+  <div class="button-row">
+    <div class="button" onclick="appendToDisplay('4')">4</div>
+    <div class="button" onclick="appendToDisplay('5')">5</div>
+    <div class="button" onclick="appendToDisplay('6')">6</div>
+    <div class="button" onclick="appendToDisplay('-')">-</div>
+  </div>
+  <div class="button-row">
+    <div class="button" onclick="appendToDisplay('1')">1</div>
+    <div class="button" onclick="appendToDisplay('2')">2</div>
+    <div class="button" onclick="appendToDisplay('3')">3</div>
+    <div class="button" onclick="appendToDisplay('*')">*</div>
+  </div>
+  <div class="button-row">
+    <div class="button" onclick="appendToDisplay('0')">0</div>
+    <div class="button" onclick="appendToDisplay('^')">^</div>
+    <div class="button" onclick="calculate()">=</div>
+    <div class="button" onclick="appendToDisplay('/')">/</div>
+  </div>
+  <input type="number" id="resetInput" placeholder="Decimal Value to Reset">
+  <button onclick="resetCalculator()">Reset</button>
+  <div id="nopeDisplay">Nope</div>
+  <div id="resetDescription">To reset the calculator, type in the text box the decimal representation of the binary. This means you have to get the actual answer (in decimal form) of the equation you put in.</div>
+</div>
+
+<script>
+  let displayValue = '';
+  let resultValue = 0;
+  let resetClicked = false;
+
+  function appendToDisplay(value) {
+    displayValue += value;
+    document.getElementById('display').value = displayValue;
+  }
+
+  function calculate() {
+    try {
+      resultValue = eval(displayValue);
+      const binaryResult = resultValue.toString(2);
+
+      if (binaryResult.includes('.')) {
+        resetAll();
+        return;
+      }
+
+      document.getElementById('result').value = binaryResult;
+    } catch (error) {
+      document.getElementById('result').value = 'Error';
+    }
+  }
+
+  function resetCalculator() {
+    const resetInputValue = parseInt(document.getElementById('resetInput').value);
+    const nopeDisplay = document.getElementById('nopeDisplay');
+    const resetDesc = document.getElementById("resetDescription");
+
+    if (!resetClicked){
+      resetDesc.style.display = "block";
+      resetClicked = true;
+      return;
+    }
+
+    if (resetInputValue === resultValue) {
+      resetAll();
+      nopeDisplay.style.display = 'none';
+      resetDesc.style.display = "none";
+      resetClicked = false;
+    } else {
+      nopeDisplay.style.display = 'block';
+      setTimeout(() => {
+        nopeDisplay.style.display = 'none';
+      }, 5000);
+    }
+  }
+
+  function resetAll(){
+    displayValue = '';
+    resultValue = 0;
+    document.getElementById('display').value = '';
+    document.getElementById('result').value = '';
+    document.getElementById('resetInput').value = '';
+  }
+</script>
 </body>
 </html>
