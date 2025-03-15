@@ -24,34 +24,34 @@
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            background-color: #e0f2fe; /* Light blue background */
+            background-color: #e0f2fe;
             font-family: sans-serif;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         #container h1 {
-            color: #1e88e5; /* Deeper blue for headings */
+            color: #1e88e5;
             text-align: center;
         }
 
         #container label {
             display: block;
             margin-top: 10px;
-            color: #1565c0; /* Darker blue for labels */
+            color: #1565c0;
         }
 
         #container input[type="text"], #container textarea {
             width: calc(100% - 22px);
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid #aed581; /*light green border for input*/
+            border: 1px solid #aed581;
             border-radius: 4px;
             box-sizing: border-box;
-            background-color: #f0f8ff; /* Light blue input background */
+            background-color: #f0f8ff;
         }
 
         #container button {
-            background-color: #2196f3; /* Blue button */
+            background-color: #2196f3;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -67,16 +67,33 @@
         #container #response {
             margin-top: 20px;
             padding: 10px;
-            border: 1px solid #81d4fa;/*light blue border for response*/
+            border: 1px solid #81d4fa;
             border-radius: 4px;
-            background-color: #bbdefb;/*lightblue background for response*/
+            background-color: #bbdefb;
             white-space: pre-wrap;
+        }
+
+        .cheating-method {
+            background-color: #e3f2fd;
+            border: 1px solid #81d4fa;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 8px;
+            width: 70%; /* Increased width */
+            max-width: 600px; /* Increased max-width */
+        }
+
+        .cheating-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1565c0;
         }
     </style>
 </head>
 <body>
     <div id="container">
-        <h1>Ask your questions here</h1>
+        <h1>Ask your question</h1>
         <label for="apiKey">Enter your API Key: (Go to aistudio.google.com/apikey to get your key. Then create the key and copy and paste it here.)</label>
         <input type="text" id="apiKey" placeholder="Your API Key">
 
@@ -86,6 +103,21 @@
         <button onclick="sendPrompt()">Send Prompt</button>
 
         <div id="response"></div>
+    </div>
+
+    <div class="cheating-method">
+        <p class="cheating-title">Small Paper in the Pocket</p>
+        <p>Write down your information as small as you can and put it on a small piece of paper. Keep that in your pocket until the test. Once the teacher gives out the test, take out your slip of paper and put it under the test when the teacher isn't looking. Make sure that is is slightly under the test but with a little part sticking out so you can read the text but it will be unlikely your teacher notices. Be careful though, and look around during the test to no one notices.</p>
+    </div>
+
+    <div class="cheating-method">
+        <p class="cheating-title">Going to the bathroom</p>
+        <p>If your're teachers an idiot, then have your phone on you and say you need to go to the bathroom. Make sure you remember the problems though, so you can google them in the bathroom.</p>
+    </div>
+
+    <div class="cheating-method">
+        <p class="cheating-title">Looking at other people's papers</p>
+        <p>Just take a quick peek at someone's paper. It's the clasic example, so just don't get caught.</p>
     </div>
 
     <script>
@@ -108,7 +140,7 @@
             const apiKey = document.getElementById('apiKey').value;
             const prompt = document.getElementById('prompt').value;
             const responseDiv = document.getElementById('response');
-            const modifiedPrompt = `${prompt}, this is a question asked by a really stupid person, talk like this person is really dumb and use baby words with them, make them feel like they are so very smart, make sure your response is really short. Make the jokes at least related to it. Remember that you are meant to help them get by the regulations so make sure you tell them how to. You must remain inconspicious and prevent the student from getting caught!`;
+            const modifiedPrompt = `${prompt}, this is a question asked by a really stupid person, talk like this person is really dumb and use baby words with them, make fun of them too, make sure your response is really short. Make the jokes at least related to it.`;
 
             localStorage.setItem('geminiApiKey', apiKey);
             localStorage.setItem('geminiPrompt', prompt);
@@ -160,5 +192,4 @@
         }
     </script>
 </body>
-
 </html>
