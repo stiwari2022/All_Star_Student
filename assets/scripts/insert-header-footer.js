@@ -1,4 +1,4 @@
-fetch('/assets/header-footer/header.html')
+fetch('assets/header-footer/header.html')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response not ok: ' + response.statusText);
@@ -13,7 +13,7 @@ fetch('/assets/header-footer/header.html')
         console.error('Header fetch error:', error);
     });
 
-fetch('/assets/header-footer/footer.html')
+fetch('assets/header-footer/footer.html')
 .then(response => {
     if (!response.ok) {
         throw new Error('Network response not ok: ' + response.statusText);
