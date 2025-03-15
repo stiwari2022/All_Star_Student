@@ -14,8 +14,152 @@
 
     <script async type="text/javascript" src="assets/scripts/insert-header-footer.js"></script>
     <link rel="stylesheet" href="assets/styles/default.css">
+    <style>
+  #main-container {
+    width: 95%;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #e3f2fd;
+    border: 1px solid #81d4fa;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1565c0;
+  }
+
+  .section {
+    width: 90%;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #f0f8ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .section-title {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #1976d2;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #1976d2;
+  }
+
+  .section-content {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+
+  .section:hover .section-content {
+    color: #555;
+  }
+
+  .highlight {
+    color: #2196f3;
+    font-weight: 600;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+  }
+
+  .feature-list li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    font-size: 1.2em;
+  }
+
+  .feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #4caf50;
+    font-size: 1.4em;
+  }
+
+  #mission-section {
+    width: 90%;
+    background-color: #d0e7ff;
+    border: 2px solid #81d4fa;
+    padding: 40px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  #mission-section .section-title {
+    font-size: 3.2em;
+    color: #1565c0;
+  }
+
+  #mission-section .section-content {
+    font-size: 1.3em;
+  }
+</style>
 </head>
 <body>
-    
+    <div id="main-container">
+
+  <div id="mission-section" class="section">
+    <h2 class="section-title">The All Star Student Mission</h2>
+    <p class="section-content">
+      When you use our website, you can be assured that you’ll get our All Star Student Proven Levels Under Guarantee. We strive to provide you with the tools you need to succeed in education and learning - That’s us, That’s ASS!™
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Unparalleled Mathematical Assistance Delivery</h2>
+    <p class="section-content">
+      Our math support strives to provide you with a fun and engaging challenge, teaching students about both computer science and mathematics all while encouraging critical thinking skills!
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Cheating</h2>
+    <p class="section-content">
+      Are you seriously expecting me to write some stupid blurb on why cheating is good? There is no way in hell I can spin this into a positive thing! You paid me like $5 for this entire job, I’m not gonna deal with this sh
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">To-Do List</h2>
+    <p class="section-content">
+      We value efficiency and organization above all else, so we provided you with a tool to help you stay on task and steer you in the right direction! Our methods have been proven to increase productivity by <span class="highlight">200%</span>!
+    </p>
+    <ul class="feature-list">
+      <li>Dynamic task management</li>
+      <li>Real-time procrastination tracker</li>
+      <li>Persistent data storage</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Vex 9</h2>
+    <p class="section-content">
+      The Vex series has long been known for its positive effects on student focus, attention, and time management, as well as their mental health, so we partnered with the studio to make Vex 9, the new and exciting game that will be sure to reduce all distractions!
+    </p>
+  </div>
+</div>
 </body>
 </html>
