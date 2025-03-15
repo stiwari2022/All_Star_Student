@@ -20,15 +20,15 @@ const messages = [
 ];
 
 // Function to select a random message from the array
-function getRandomMessage() {
+function getRandomMessageBig() {
     const randomIndex = Math.floor(Math.random() * messages.length);
     return messages[randomIndex];
 }
-document.getElementById('randomMessage').innerText = getRandomMessage();
+document.getElementById('randomMessage').innerText = getRandomMessageBig();
 
 setInterval(function() {
     $('#myModal').modal('show');
-    document.getElementById('randomMessage').innerText = getRandomMessage();
+    document.getElementById('randomMessage').innerText = getRandomMessageBig();
 },  25000);  // 10000ms = 5 seconds
 
 const messages2 = [
