@@ -79,28 +79,6 @@
         <!-- The fetched content will be inserted here -->
     </div>
 
-    <script>
-        // Function to fetch and insert HTML content
-        function fetchHTML() {
-            fetch('assets/html-modules/popup.html') // Path to the HTML file you want to fetch
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    // Insert the fetched HTML into the 'content' div
-                    document.getElementById('content').innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-        }
-
-        // Call the function to fetch the HTML when the page loads
-        fetchHTML();
-    </script>
     <div id="container">
         <h1>Ask your questions here</h1>
         <label for="apiKey">Enter your API Key: (Go to aistudio.google.com/apikey to get your key. Then create the key and copy and paste it here.)</label>
